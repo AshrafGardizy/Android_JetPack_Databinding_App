@@ -11,9 +11,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         databinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-        databinding.buttonHello.setOnClickListener {
-            val name:String = databinding.edInput.text.toString()
-            databinding.txtResult.text= "Hello "+ name
+//        databinding.buttonHello.setOnClickListener {
+//            val name:String = databinding.edInput.text.toString()
+//            databinding.txtResult.text= "Hello "+ name
+//        }
+
+        //To prevent everytime writing binding at the begininig of every View
+        databinding.apply {
+            buttonHello.setOnClickListener {
+                val name:String = edInput.text.toString()
+                txtResult.text = "Hello "+name
+            }
         }
 
     }
